@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио Дизайнера</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #4e54c8;
+      --accent-color: #8f94fb;
+      --bg-light: rgba(255, 255, 255, 0.1);
+      --text-light: #f0f0f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(to right, var(--main-color), var(--accent-color));
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 2rem 1rem;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header h1::after {
+      content: ' ✨';
+      animation: sparkle 1.5s infinite alternate;
+    }
+
+    @keyframes sparkle {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1.2); }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(3px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: relative;
+      padding: 0.25rem;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      flex-grow: 1;
+      padding: 2rem;
+      display: grid;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h2 {
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .button {
+      background: #fff;
+      color: var(--main-color);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .button:hover {
+      background: var(--accent-color);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .interactive {
+      display: inline-block;
+    }
+
+    audio, video {
+      width: 100%;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li::marker {
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Портфолио Дизайнера</h1>
+  </header>
+  <nav>
+    <a href="#about">Обо мне</a>
+    <a href="#projects">Проекты</a>
+    <a href="#contact">Контакты</a>
+  </nav>
+  <div class="container">
+    <section id="about" class="card">
+      <h2>Обо мне</h2>
+      <p>Я графический дизайнер с 5-летним опытом работы, специализируюсь на веб-дизайне и брендировании.</p>
+      <button class="button interactive" onclick="alert('Спасибо за интерес!')">Связаться</button>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Проекты</h2>
+      <ul>
+        <li>Редизайн сайта для студии моды</li>
+        <li>Разработка логотипа для кофейни</li>
+        <li>UI-дизайн приложения для заметок</li>
+      </ul>
+      <button class="button interactive" onclick="document.body.style.backgroundColor = '#333'">Изменить фон</button>
+    </section>
+
+    <section id="media" class="card">
+      <h2>Медиа</h2>
+      <video controls>
+        <source src="video-sample.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+      <audio controls>
+        <source src="audio-sample.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+      </audio>
+      <button class="button interactive" onclick="this.textContent='Спасибо за просмотр!'">Нравится видео</button>
+    </section>
+  </div>
+  <footer>
+    &copy; 2025 Портфолио Дизайнера. Все права защищены.
+  </footer>
+</body>
+</html>
